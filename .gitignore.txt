@@ -1,0 +1,39 @@
+# --- Entorno Virtual ---
+env/
+venv/
+.env
+
+# --- Archivos temporales de Python (Compilados) ---
+# Esto ignora todas las carpetas __pycache__ dentro de src/ y cualquier lado
+__pycache__/
+*.py[cod]
+
+# --- Archivos de Sistema y Editor (Recomendado) ---
+# Evita subir archivos de configuración de VSCode o basura de Windows/Mac
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- PyInstaller (Compilación) ---
+build/
+dist/
+*.spec
+
+# --- Base de datos (SEGURIDAD) ---
+# Bloquea cualquier archivo .db en la raíz o dentro de carpetas
+*.db
+# Específicamente para tu nueva estructura:
+data/*.db
+
+# --- Archivos generados (Limpieza) ---
+# Ignorar PDFs generados en la raíz
+*.pdf
+
+# Ignorar las imágenes de códigos de barras (Nueva ubicación)
+data/barcodes/
+# Mantenemos la vieja por seguridad si quedó alguna carpeta suelta
+barcodes/
+
+# --- Logs y Errores ---
+*.log
