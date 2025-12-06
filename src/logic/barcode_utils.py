@@ -1,18 +1,20 @@
 import os
 from barcode import Code128
 from barcode.writer import ImageWriter
-# Importamos la función centralizada (No la redefinimos aquí)
-from src.utils import resource_path 
+
+# ✅ CAMBIO CLAVE: Importamos la función de carpeta de usuario
+from src.utils import get_user_data_dir
 
 # =================================
 # CONFIGURACIÓN
 # =================================
-# Usamos resource_path para que funcione en la carpeta 'data' tanto en DEV como EXE
-BARCODE_FOLDER = resource_path(os.path.join("data", "barcodes"))
+# Ahora guardamos en C:/Users/Usuario/AppData/Local/LabelGenerator/barcodes
+# Esta carpeta SIEMPRE tiene permisos de escritura.
+BARCODE_FOLDER = os.path.join(get_user_data_dir(), "barcodes")
 
 def generate_barcode_image(text):
     """
-    Genera imagen PNG del código de barras en la carpeta data/barcodes.
+    Genera imagen PNG del código de barras en la carpeta segura del usuario.
     Retorna la ruta completa del archivo generado.
     """
     try:
@@ -21,11 +23,11 @@ def generate_barcode_image(text):
             os.makedirs(BARCODE_FOLDER)
 
         # 2. Definir rutas
-        # python-barcode añade la extensión automáticamente, así que en 'file_path' NO ponemos .png
+        # python-barcode añade la extensión automáticamente
         base_filename = os.path.join(BARCODE_FOLDER, text) 
         
         # 3. Generar y guardar
-        # writer_options permite controlar el tamaño si lo necesitas después
+        # writer_options para asegurar buena calidad en el PDF
         writer_options = {
             'module_width': 0.4, 
             'module_height': 15.0, 
