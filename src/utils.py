@@ -39,10 +39,10 @@ DB_USER = "postgres.brcqimesmfyagpxjwreb"
 CURRENT_VERSION = "3.2"
 
 # Archivo de texto simple donde pones el número de la nueva versión (ej: 3.1)
-VERSION_URL = "https://raw.githubusercontent.com/nsegurag/LabelGenerator/refs/heads/main/version.txt"
+VERSION_URL = "https://raw.githubusercontent.com/nsegurag/SynapseCargo/refs/heads/main/version.txt"
 
 # API de GitHub para encontrar el .exe automáticamente
-GITHUB_REPO_API = "https://api.github.com/repos/nsegurag/LabelGenerator/releases/latest"
+GITHUB_REPO_API = "https://api.github.com/repos/nsegurag/SynapseCargo/releases/latest"
 
 def resource_path(relative_path):
     try:
